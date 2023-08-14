@@ -6,6 +6,7 @@ $routes = [
     '/login'    => 'login',
     '/home'     => 'home',
     '/not-found' => 'notFound',
+    '/logout'    => 'logOut'
 ];
 
 if(empty($routes[$uri])){

@@ -1,12 +1,12 @@
 <?php
 include_once 'app/Models/Auth.php';
 
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $data = [
         "email" => $_POST['email'],
         "password" => $_POST['password'],
     ];
-    
+
     $result = Auth::login($data);
 
     // die(var_dump($result));
@@ -25,13 +25,18 @@ if(isset($_POST['login'])){
 </head>
 
 <body class="bg-black">
-    <div class="container-fluid mt-2  ">
+    <div class="container-fluid mt-2 ">
         <main class="card bg-dark p-4 d-flex flex-row">
-            <div class="col-6 flex" >
+            <div class="col-6 flex">
                 <img src="https://i.pinimg.com/564x/05/de/54/05de54edcfe213403ca983305d567181.jpg" class="img-fluit rounded">
             </div>
             <div class="col-6 flex">
                 <article class="card-body">
+                    <?php if(isset($result)) : ?>
+                    <div class="alert alert-<?php $result["status"] === 'error' ? print("danger") : print("success") ?>">
+                        <?= $result["message"] ?>
+                    </div>
+                    <?php endif ?>
                     <h1 class="card-title text-warning mt-3 pt-5">Masuk ke akun anda</h1>
                     <p class="card-title text-light fs-6 pt-1 pb-4  ">Selamat datang! Pilih dan Masukan input untuk login</p>
                     <form class="mt-4" action="" method="POST">
@@ -42,6 +47,7 @@ if(isset($_POST['login'])){
                         <div class="mb-4">
                             <label class="text-warning fw-lighter fs-6" for="password">Password</label>
                             <input class="form-control bg-dark-subtle" placeholder="********" type="password" name="password" id="password">
+                            <p class="text-light"><input type="checkbox" onclick="checkPass()"> Show Password</p>
                         </div>
                         <div class="d-grid gap-2 pt-3">
                             <button name="login" type="submit" class="btn btn-outline-warning">Login</button>
@@ -54,6 +60,17 @@ if(isset($_POST['login'])){
             </div>
         </main>
     </div>
+
+    <script>
+        function checkPass() {
+            var check = document.getElementById("password");
+            if (check.type === "password") {
+                check.type = "text";
+            } else {
+                check.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>

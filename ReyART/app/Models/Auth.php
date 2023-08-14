@@ -22,8 +22,7 @@ class Auth extends DB
                 "data" => $result,
                 "message" => "Berhasil register",
             ];
-        } 
-        else{
+        } else {
             return [
                 "status" => "error",
                 "data" => [],
@@ -47,14 +46,13 @@ class Auth extends DB
         } else {
             $decrpty = Auth::checkPassword($password, $user["password"]);
 
-            if(!$decrpty){
+            if (!$decrpty) {
                 return [
                     "status" => "error",
                     "data" => [],
                     "message" => "Password Salah",
                 ];
-            }
-            else{
+            } else {
                 $_SESSION["email"] = $email;
                 setcookie("email", $email, time() + 86400);
 
