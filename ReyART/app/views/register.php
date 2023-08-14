@@ -42,19 +42,19 @@ if (isset($_POST['register'])) {
                     <form class="mt-4" action="" method="POST">
                         <div class="mb-4">
                             <label class="text-warning fw-lighter" for="email">Email</label>
-                            <input class="form-control bg-dark-subtle" placeholder="example@email.com" type="email" name="email" id="email">
+                            <input class="form-control bg-dark-subtle" placeholder="example@email.com" type="email" name="email" id="email" required>
                         </div>
                         <div class="mb-4">
                             <label class="text-warning fw-lighter" for="username">Username</label>
-                            <input class="form-control bg-dark-subtle" placeholder="Sudin"  type="text" name="username" id="username">
+                            <input class="form-control bg-dark-subtle" placeholder="Sudin"  type="text" name="username" id="username" required>
                         </div>
                         <div class="mb-4">
                             <label class="text-warning fw-lighter" for="password">Password</label>
-                            <input class="form-control bg-dark-subtle" placeholder="********"  type="password" name="password" id="password">
+                            <input class="form-control bg-dark-subtle" placeholder="********"  type="password" name="password" id="password" required>
                         </div>
                         <div class="mb-4">
                             <label class="text-warning fw-lighter" for="password_confirm">Password confirm</label>
-                            <input class="form-control bg-dark-subtle" placeholder="********"  type="password" name="password_confirm" id="password_confirm">
+                            <input class="form-control bg-dark-subtle" placeholder="********"  type="password" name="password_confirm" id="password_confirm" required>
                         </div>
                         <div class="d-grid gap-2 pt-3">
                             <button name="register" type="submit" class="btn btn-outline-warning">Register</button>
